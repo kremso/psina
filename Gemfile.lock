@@ -118,6 +118,8 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.1.5)
+    foreigner (1.2.1)
+      activerecord (>= 3.0.0)
     gherkin (2.11.2)
       json (>= 1.4.6)
     hike (1.2.1)
@@ -195,6 +197,7 @@ DEPENDENCIES
   coffee-rails!
   cucumber-rails
   database_cleaner
+  foreigner
   journey!
   jquery-rails
   pg
