@@ -1,13 +1,18 @@
 class JokesController < ApplicationController
+  def index
+    @jokes = humor.published_jokes
+  end
+
   def new
-    @joke = Joke.new
+    @joke = humor.new_joke
   end
 
   def create
-    joke = Humor.new(params[:body])
-    joke.tag_with(params[:tags])
-    joke.submit!
-
-    render nothing: true
+    @joke = humor.new_joke(params[:joke])
+    if @joke.submit
+      redirect_to action: :index, notice: "Joke submitted"
+    else
+      render :new
+    end
   end
 end

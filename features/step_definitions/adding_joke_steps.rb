@@ -3,11 +3,11 @@ Given /^I go to the new joke submission page$/ do
 end
 
 When /^I fill in a new joke "(.*?)"$/ do |joke|
-  fill_in "body", with: joke
+  fill_in "joke_body", with: joke
 end
 
 When /^I submit the joke$/ do
-  click_button "Save changes"
+  click_button "Create Joke"
 end
 
 Then /^the joke should be queued for review by administrator$/ do
@@ -15,9 +15,9 @@ Then /^the joke should be queued for review by administrator$/ do
 end
 
 When /^I assign it tags "(.*?)"$/ do |tags|
-  fill_in "tags", with: tags
+  fill_in "joke_tags", with: tags
 end
 
 Then /^the joke should be tagged with "(.*?)"$/ do |tag|
-  Joke.first.tags.collect(&:label).should include(tag)
+  Joke.first.tags.to_s.should include(tag)
 end

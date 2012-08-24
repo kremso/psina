@@ -1,7 +1,7 @@
-<%= form_for @joke do %>
-  <%= label_tag :body %>
-  <%= text_area_tag :body %>
-  <%= label_tag :tags %>
-  <%= text_field_tag :tags %>
-  <%= submit_tag %>
+<%= form_for @joke do |f| %>
+  <%= f.label:body %>
+  <%= f.text_area:body %>
+  <%= f.label:tags %>
+  <%= f.text_field:tags %>
+  <%= f.submit %>
 <% end -%>

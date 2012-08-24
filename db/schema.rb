@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120823150810) do
+ActiveRecord::Schema.define(:version => 20120823213154) do
 
   create_table "jokes", :force => true do |t|
     t.text     "body"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20120823150810) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "jokes", ["published"], :name => "index_jokes_on_published"
 
   create_table "jokes_tags", :force => true do |t|
     t.integer "joke_id"

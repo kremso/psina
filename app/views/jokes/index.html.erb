@@ -1,0 +1,5 @@
+<% @jokes.each do |joke| -%>
+  <% joke = exhibit(joke) %>
+  <p><%= joke.body %></p>
+  <p><%= joke.tags.render(self) %></p>
+<% end -%>
