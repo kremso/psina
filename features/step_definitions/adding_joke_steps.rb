@@ -4,6 +4,10 @@ end
 
 When /^I fill in a new joke "(.*?)"$/ do |joke|
   fill_in "joke_body", with: joke
+  fill_in "joke_title", with: "Joke"
+  fill_in "joke_advice", with: "Advice"
+  fill_in "joke_author", with: "Ferko Mak"
+  fill_in "joke_email", with: "ferko@mak.sk"
 end
 
 When /^I submit the joke$/ do

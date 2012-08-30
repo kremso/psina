@@ -9,7 +9,7 @@
     <% @jokes.each do |joke| -%>
       <tr>
         <% joke = exhibit(joke) %>
-        <td><%= joke.body %></td>
+        <td><%= joke.title %></td>
         <td><%= joke.tags.render(self) %></td>
       </tr>
     <% end -%>

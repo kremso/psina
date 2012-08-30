@@ -10,3 +10,9 @@
   margin-top: 70px;
   padding: 70px 0;
 }
+
+.field_with_errors {
+  input, textarea {
+    border: 1px solid red;
+  }
+}

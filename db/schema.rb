@@ -11,13 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120823213154) do
+ActiveRecord::Schema.define(:version => 20120830114615) do
 
   create_table "jokes", :force => true do |t|
     t.text     "body"
-    t.boolean  "published",  :default => false
+    t.boolean  "published",                 :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title",      :limit => 100,                    :null => false
+    t.text     "advice"
+    t.string   "author",     :limit => 100,                    :null => false
+    t.string   "email",      :limit => 100,                    :null => false
   end
 
   add_index "jokes", ["published"], :name => "index_jokes_on_published"
