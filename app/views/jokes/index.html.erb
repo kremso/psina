@@ -1,4 +1,18 @@
-<% @jokes.each do |joke| -%>
-  <% joke = exhibit(joke) %>
-  <p><%= joke.render(self) %></p>
-<% end -%>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Názov</th>
+      <th>Značky</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jokes.each do |joke| -%>
+      <tr>
+        <% joke = exhibit(joke) %>
+        <td><%= joke.body %></td>
+        <td><%= joke.tags.render(self) %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+
+</table>

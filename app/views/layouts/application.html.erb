@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Psina</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Psina</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a class="brand" href="#">PSIna</a>
+          <ul class="nav">
+            <li class="active"><%= link_to 'Vtipy', jokes_path %></li>
+            <li><%= link_to 'Pridaj nový vtip', new_joke_path %></li>
+          </ul>
+        </div>
+      </div>
 
-<%= yield %>
+      <%= yield %>
+    </div>
 
-</body>
+    <footer class="footer">
+      <div class="container">
+        <p>Postavené na <a href="http://rubyonrails.org">Ruby on Rails</a>, <a href="http://postgresql.org">PostgreSQL</a> a <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a></p>
+      </div>
+    </footer>
+  </body>
 </html>

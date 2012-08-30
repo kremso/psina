@@ -20,13 +20,13 @@ GIT
 
 GIT
   remote: git://github.com/rails/journey.git
-  revision: e4755e0ba27a4d6863656031e7c1ce26a7413ca6
+  revision: 1372f0c608b2fb84bdedaee05c4f3864868cd2e5
   specs:
     journey (2.0.0.20120723141804)
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 16fbe6f3e3f10d8f4bc72c3b7b9e5e35df2ee3a4
+  revision: 8074f3b478a110236c8e12bc0678660a9231126b
   specs:
     actionmailer (4.0.0.beta)
       actionpack (= 4.0.0.beta)
@@ -79,7 +79,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/sprockets-rails.git
-  revision: 63e890e536790a07264107566fb462fc0daa0dab
+  revision: 457c3e8a539b0e7e64012d3abf7083005f5aeaeb
   specs:
     sprockets-rails (1.0.1)
       railties (>= 4.0.0.beta, < 5.0)
@@ -89,6 +89,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.2)
+    bootstrap-sass (2.0.4.1)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -194,6 +195,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-deprecated_finders!
   arel!
+  bootstrap-sass
   coffee-rails!
   cucumber-rails
   database_cleaner
