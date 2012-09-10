@@ -10,7 +10,7 @@ class Humor
   end
 
   def find_jokes(q)
-    Joke.search(q) + Tag.jokes_tagged_with(q)
+    Joke.search_published(q) + Joke.published_and_tagged_with(q)
   end
 
   private

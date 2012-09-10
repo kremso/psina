@@ -21,6 +21,14 @@ class Joke < ActiveRecord::Base
     save
   end
 
+  def self.search_published(q)
+    published.search(q)
+  end
+
+  def self.published_and_tagged_with(tag)
+    ::Tag.labeled(tag).includes(:jokes).references(:jokes).merge(Joke.published).collect(&:jokes).flatten
+  end
+
   def self.published
     where(published: true)
   end
