@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830114615) do
+ActiveRecord::Schema.define(:version => 20120910113600) do
 
   create_table "jokes", :force => true do |t|
     t.text     "body"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20120830114615) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tags", ["label"], :name => "index_tags_on_label", :unique => true
 
   add_foreign_key "jokes_tags", "jokes", :name => "jokes_tags_joke_id_fk"
   add_foreign_key "jokes_tags", "tags", :name => "jokes_tags_tag_id_fk"
