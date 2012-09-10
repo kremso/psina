@@ -1,16 +1,16 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Názov</th>
-      <th>Značky</th>
-    </tr>
-  </thead>
+<table class="table table-striped jokes">
   <tbody>
     <% @jokes.each do |joke| -%>
-      <tr>
-        <% joke = exhibit(joke) %>
-        <td><%= joke.title %></td>
-        <td><%= joke.tags.render(self) %></td>
+      <tr id="<%= dom_id(joke) %>">
+        <td>
+          <% joke = exhibit(joke) %>
+          <strong><%= joke.title %></strong> &mdash; <%= joke.tags.render(self) %> <%= truncate(inline_images(joke.body)) %>
+          <div class="hidden" data-toggle="<%= dom_id(joke) %>">
+            <%= simple_format(inline_images(joke.body)) %>
+            <h4>Poučenie</h4>
+            <%= simple_format(joke.advice) %>
+          </div>
+        </td>
       </tr>
     <% end -%>
   </tbody>
