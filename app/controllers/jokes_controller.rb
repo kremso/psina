@@ -15,4 +15,9 @@ class JokesController < ApplicationController
       render :new
     end
   end
+
+  def search
+    @q = params[:q]
+    @jokes = humor.find_jokes(@q)
+  end
 end

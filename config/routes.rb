@@ -53,5 +53,7 @@ Psina::Application.routes.draw do
 
   # See how all your routes lay out with "rake routes".
 
-  resources :jokes
+  resources :jokes do
+    get :search, on: :collection
+  end
 end

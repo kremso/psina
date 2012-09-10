@@ -9,6 +9,10 @@ class Humor
     Joke.published
   end
 
+  def find_jokes(pattern)
+    Joke.search(pattern)
+  end
+
   private
 
   def joke_maker

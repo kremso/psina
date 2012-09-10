@@ -9,6 +9,7 @@ gem 'therubyracer'
 
 gem 'pg'
 gem 'foreigner'
+gem 'texticle', '~> 2.0', require: 'texticle/rails'
 
 gem 'bootstrap-sass'
 

@@ -1,12 +1,12 @@
 Given /^the joke "(.*?)" is published$/ do |joke|
-  joke = Joke.new
-  joke.body = joke
-  joke.title = "Joke"
-  joke.advice = "Advice"
-  joke.author = "Ferko Mak"
-  joke.email = "ferko@mak.sk"
-  joke.published = true
-  joke.save!
+  @joke = Joke.new
+  @joke.body = joke
+  @joke.title = joke
+  @joke.advice = "Advice"
+  @joke.author = "Ferko Mak"
+  @joke.email = "ferko@mak.sk"
+  @joke.published = true
+  @joke.save!
 end
 
 When /^I go to the jokes listing$/ do
@@ -14,5 +14,5 @@ When /^I go to the jokes listing$/ do
 end
 
 Then /^I should see a joke "(.*?)"$/ do |joke|
-  joke.should have_content(joke)
+  page.should have_content(joke)
 end

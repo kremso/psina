@@ -1,4 +1,8 @@
+require 'texticle/searchable'
+
 class Joke < ActiveRecord::Base
+  extend Searchable(:title, :body, :advice)
+
   attr_accessible :body, :tags, :title, :advice, :author, :email
 
   has_and_belongs_to_many :tags
