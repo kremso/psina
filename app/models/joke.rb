@@ -10,7 +10,7 @@ class Joke < ActiveRecord::Base
   validates_presence_of :title, :body, :advice, :author, :email
 
   def tags=(new_tags)
-    super(new_tags.split(',').collect { |tag| ::Tag.new(label: tag) })
+    super(new_tags.split(',').collect { |tag| ::Tag.find_or_initialize_by_label(tag.strip) })
   end
 
   def tags
