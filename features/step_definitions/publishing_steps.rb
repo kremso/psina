@@ -12,6 +12,7 @@ Given /^the joke "(.*?)" is submitted$/ do |joke|
 end
 
 When /^I go to the joke publishing screen$/ do
+  page.driver.browser.authorize 'admin', 'psina2012'
   visit admin_jokes_path
 end
 
