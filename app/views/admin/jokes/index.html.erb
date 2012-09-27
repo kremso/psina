@@ -15,7 +15,7 @@
                 <%= f.label :rating, 'Hodnotenie', class: 'control-label' %>
                 <div class='controls'>
                   <% (1..5).each do |rating| %>
-                    <%= f.radio_button :rating, rating %>
+                    <%= f.radio_button :rating, rating, class: 'stars' %>
                   <% end -%>
                 </div>
               </div>

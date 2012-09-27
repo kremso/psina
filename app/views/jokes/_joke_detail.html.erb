@@ -1,3 +1,11 @@
-<%= simple_format(inline_images(joke.body)) %>
-<h4>Poučenie</h4>
-<%= simple_format(joke.advice) %>
+<div class="joke-detail">
+  <%= simple_format(inline_images(joke.body)) %>
+  <h4>Poučenie</h4>
+  <%= simple_format(joke.advice) %>
+  <p>
+    <% (1..5).each do |rating| %>
+      <%= radio_button_tag :rating, rating, rating == joke.rating, class: 'stars-static' %>
+    <% end -%>
+    <span class="comment"><%= joke.comment %></span>
+  </p>
+</div>
