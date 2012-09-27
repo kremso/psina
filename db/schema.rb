@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910113600) do
+ActiveRecord::Schema.define(:version => 20120927100302) do
 
   create_table "jokes", :force => true do |t|
     t.text     "body"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20120910113600) do
     t.text     "advice"
     t.string   "author",     :limit => 100,                    :null => false
     t.string   "email",      :limit => 100,                    :null => false
+    t.integer  "rating"
+    t.string   "comment",    :limit => 200
   end
 
   add_index "jokes", ["published"], :name => "index_jokes_on_published"

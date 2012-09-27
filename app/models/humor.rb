@@ -13,6 +13,15 @@ class Humor
     Joke.search_published(q) + Joke.published_and_tagged_with(q)
   end
 
+  def publish_joke(id, params)
+    joke = Joke.find(id)
+    joke.publish(params)
+  end
+
+  def unpublished_jokes
+    Joke.unpublished || []
+  end
+
   private
 
   def joke_maker

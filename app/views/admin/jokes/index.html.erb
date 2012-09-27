@@ -1,0 +1,37 @@
+<h1>Nepublikované vtipy</h1>
+
+<table class="table table-striped jokes unpublished-jokes">
+  <tbody>
+    <% @unpublished_jokes.each do |joke| -%>
+      <tr>
+        <td>
+          <% joke = exhibit(joke) %>
+          <%= render 'jokes/joke_preview', joke: joke %>
+          <div class="hidden" data-toggle="<%= dom_id(joke) %>">
+            <%= render 'jokes/joke_detail', joke: joke %>
+
+            <%= form_for joke, url: publish_admin_joke_path(joke), html: { class: 'form-horizontal' } do |f| %>
+              <div class='control-group'>
+                <%= f.label :rating, 'Hodnotenie', class: 'control-label' %>
+                <div class='controls'>
+                  <% (1..5).each do |rating| %>
+                    <%= f.radio_button :rating, rating %>
+                  <% end -%>
+                </div>
+              </div>
+              <div class='control-group'>
+                <%= f.label :comment, 'Komentár', class: 'control-label' %>
+                <div class='controls'>
+                  <%= f.text_field :comment, class: 'input-xxlarge', placeholder: 'Krátky a výstižný komentár k vtipu' %>
+                </div>
+              </div>
+              <div class="form-actions">
+                <%= button_to 'Publikovať', publish_admin_joke_path(joke), class: 'btn btn-primary' %>
+              </div>
+            <% end -%>
+          </div>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

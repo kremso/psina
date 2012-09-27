@@ -21,6 +21,13 @@ class Joke < ActiveRecord::Base
     save
   end
 
+  def publish(params)
+    self[:published] = true
+    self[:rating] = params[:rating]
+    self[:comment] = params[:comment]
+    save
+  end
+
   def self.search_published(q)
     published.search(q)
   end
@@ -31,5 +38,9 @@ class Joke < ActiveRecord::Base
 
   def self.published
     where(published: true)
+  end
+
+  def self.unpublished
+    where(published: false)
   end
 end

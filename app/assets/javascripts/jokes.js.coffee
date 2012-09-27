@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('table.jokes tr').click ->
+  $('table.jokes .joke-preview').click ->
     target_row_id = $(this).attr("id")
     $("div[data-toggle='#{target_row_id}']").toggle()

@@ -56,4 +56,10 @@ Psina::Application.routes.draw do
   resources :jokes do
     get :search, on: :collection
   end
+
+  namespace :admin do
+    resources :jokes do
+      patch :publish, on: :member
+    end
+  end
 end

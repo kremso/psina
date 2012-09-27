@@ -1,14 +1,12 @@
 <table class="table table-striped jokes">
   <tbody>
-    <% @jokes.each do |joke| -%>
+    <% jokes.each do |joke| -%>
       <tr id="<%= dom_id(joke) %>">
         <td>
           <% joke = exhibit(joke) %>
-          <strong><%= joke.title %></strong> &mdash; <%= joke.tags.render(self) %> <%= truncate(inline_images(joke.body)) %>
+          <%= render 'joke_preview', joke: joke %>
           <div class="hidden" data-toggle="<%= dom_id(joke) %>">
-            <%= simple_format(inline_images(joke.body)) %>
-            <h4>Poučenie</h4>
-            <%= simple_format(joke.advice) %>
+            <%= render 'joke_detail', joke:joke %>
           </div>
         </td>
       </tr>

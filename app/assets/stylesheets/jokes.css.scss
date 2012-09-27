@@ -21,6 +21,13 @@
   display: none;
 }
 
-table.jokes tr {
+table.jokes .joke-preview {
   cursor: pointer;
+}
+
+.button_to {
+  display: inline;
+  div {
+    display: inline;
+  }
 }
