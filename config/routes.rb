@@ -52,6 +52,8 @@ Psina::Application.routes.draw do
 
 
   # See how all your routes lay out with "rake routes".
+  
+  root to: 'jokes#index'
 
   resources :jokes do
     get :search, on: :collection
