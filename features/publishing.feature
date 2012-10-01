@@ -12,4 +12,4 @@ Feature: Publishing jokes
     Given the joke "Very funny" is submitted
     When I go to the joke publishing screen
     And I rate the joke "Very funny" with 3 stars and add a comment "Good one" and confirm the publishing
-    Then I should see the joke "Very funny" in the list of unpublished jokes
+    Then the joke "Very funny" should be published

@@ -31,5 +31,5 @@ When /^I rate the joke "(.*?)" with (\d+) stars and add a comment "(.*?)" and co
 end
 
 Then /^the joke "(.*?)" should be published$/ do |joke|
-  Joke.where(title: joke).should be_published
+  Joke.where(title: joke).published.should be_true
 end
