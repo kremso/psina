@@ -9,9 +9,9 @@ class Admin::JokesController < ApplicationController
 
   def publish
     if humor.publish_joke(params[:id], params[:joke])
-      redirect_to admin_jokes_path
+      redirect_to admin_jokes_path, notice: 'Vtip bol publikovaný'
     else
-      render :index, error: 'Vtip sa nepodarilo publikovať'
+      redirect_to admin_jokes_path, alert: 'Vtip sa nepodarilo publikovať'
     end
   end
 
