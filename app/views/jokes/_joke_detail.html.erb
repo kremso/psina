@@ -4,7 +4,7 @@
   <%= simple_format(joke.advice) %>
   <p>
     <% (1..5).each do |rating| %>
-      <%= radio_button_tag :rating, rating, rating == joke.rating, class: 'stars-static' %>
+      <%= radio_button_tag "rating_#{joke.id}", rating, rating == joke.rating, class: 'stars-static' %>
     <% end -%>
     <span class="comment"><%= joke.comment %></span>
   </p>
