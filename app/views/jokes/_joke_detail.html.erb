@@ -1,4 +1,10 @@
 <div class="joke-detail">
+  <div class="tags">
+    <% joke.tags.each do |tag| %>
+      <span class="label label-info"><%= link_to tag.label, search_jokes_path(q: tag.label) %></span>
+    <% end -%>
+  </div>
+
   <%= simple_format(inline_images(joke.body)) %>
   <h4>Poučenie</h4>
   <%= simple_format(joke.advice) %>
