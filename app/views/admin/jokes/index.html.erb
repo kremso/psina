@@ -10,7 +10,14 @@
           <div class="hidden" data-toggle="<%= dom_id(joke) %>">
             <%= render 'jokes/joke_detail', joke: joke %>
 
+
             <%= form_for joke, url: publish_admin_joke_path(joke), html: { class: 'form-horizontal' } do |f| %>
+              <div class='control-group'>
+                <span class="control-label">Autor</span> 
+                <div class="controls">
+                  <p class="inside-form"><%= joke.author %> (<%= link_to joke.email, "mailto:#{joke.email}" %>)</p>
+                </div>
+              </div>
               <div class='control-group'>
                 <%= f.label :rating, 'Hodnotenie', class: 'control-label' %>
                 <div class='controls'>
