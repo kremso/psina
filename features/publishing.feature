@@ -13,3 +13,9 @@ Feature: Publishing jokes
     When I go to the joke publishing screen
     And I rate the joke "Very funny" with 3 stars and add a comment "Good one" and confirm the publishing
     Then the joke "Very funny" should be published
+
+  Scenario: Deleting joke
+    Given the joke "Very funny" is submitted
+    When I go to the joke publishing screen
+    And I delete the joke "Very funny"
+    Then the joke "Very funny" should not exist

@@ -22,6 +22,10 @@ class Humor
     Joke.unpublished || []
   end
 
+  def destroy_joke(id)
+    Joke.find(id).destroy
+  end
+
   private
 
   def joke_maker

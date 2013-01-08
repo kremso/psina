@@ -33,3 +33,13 @@ end
 Then /^the joke "(.*?)" should be published$/ do |joke|
   Joke.where(title: joke).published.should be_true
 end
+
+When /^I delete the joke "(.*?)"$/ do |joke|
+  within(".unpublished-jokes tr:contains('#{joke}')") do
+    click_link "Zmazať"
+  end
+end
+
+Then /^the joke "(.*?)" should not exist$/ do |joke|
+  Joke.where(title: joke).should be_empty
+end

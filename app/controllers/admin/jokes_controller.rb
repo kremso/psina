@@ -15,6 +15,14 @@ class Admin::JokesController < ApplicationController
     end
   end
 
+  def destroy
+    if humor.destroy_joke(params[:id])
+      redirect_to admin_jokes_path, notice: 'Vtip bol zmazaný'
+    else
+      redirect_to admin_jokes_path, notice: 'Vtip sa nepodarilo zmazať'
+    end
+  end
+
   private
 
   def authenticate
