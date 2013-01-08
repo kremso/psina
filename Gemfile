@@ -13,6 +13,8 @@ gem 'texticle', '~> 2.0', require: 'texticle/rails'
 
 gem 'bootstrap-sass'
 
+gem 'nokogiri'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

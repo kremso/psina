@@ -204,6 +204,7 @@ DEPENDENCIES
   foreigner
   journey!
   jquery-rails
+  nokogiri
   pg
   rails!
   rspec-rails
