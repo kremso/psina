@@ -5,4 +5,13 @@
 $ ->
   $('table.jokes .joke-preview').click ->
     target_row_id = $(this).attr("id")
-    $("div[data-toggle='#{target_row_id}']").toggle()
+    details = $("div[data-toggle='#{target_row_id}']")
+    details.toggle()
+
+    player = $('.yt', details)
+
+    new YT.Player(player.attr('id'), {
+       height: '390'
+       width: '640'
+       videoId: player.data('yt-id')
+     })

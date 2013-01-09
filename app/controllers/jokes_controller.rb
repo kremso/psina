@@ -1,3 +1,4 @@
+# encoding: utf-8
 class JokesController < ApplicationController
   def index
     @jokes = humor.published_jokes
@@ -16,7 +17,7 @@ class JokesController < ApplicationController
     end
 
     if @joke.submit
-      redirect_to action: :index, notice: "Joke submitted"
+      redirect_to jokes_path, notice: "Vtip bol odoslaný. V zozname vtipov sa bude zobrazovať až po schválení"
     else
       render :new
     end

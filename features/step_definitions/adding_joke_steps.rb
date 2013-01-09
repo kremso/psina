@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Given /^I go to the new joke submission page$/ do
   visit new_joke_path
 end
@@ -11,7 +13,7 @@ When /^I fill in a new joke "(.*?)"$/ do |joke|
 end
 
 When /^I submit the joke$/ do
-  click_button "Create Joke"
+  click_button "Odoslať vtip"
 end
 
 Then /^the joke should be queued for review by administrator$/ do

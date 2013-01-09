@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap";
+@import "bootstrap-responsive";
+
+.table {
+  table-layout: fixed;
+}
 
 .footer {
   background-color: #F5F5F5;
@@ -17,12 +22,15 @@
   }
 }
 
-.hidden {
+.togglable-hidden {
   display: none;
 }
 
 table.jokes .joke-preview {
   cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  width: inherit;
 }
 
 .button_to {
@@ -35,6 +43,12 @@ table.jokes .joke-preview {
 .joke-detail {
   margin-top: 1em;
   margin-left: 1em;
+  max-width: 700px;
+
+  .well {
+    margin-top: 20px;
+    padding: 5px 20px;
+  }
 }
 
 .comment {

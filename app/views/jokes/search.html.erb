@@ -2,5 +2,7 @@
   <h3>Výsledky vyhľadávania pre dopyt <em><%= @q %></em></h3>
   <%= render 'jokes', jokes: @jokes %>
 <% else -%>
-  <p>Pre dopyt <%= @q %> sa nenašli žiadne výsledky. Pozri si radšej <%= link_to 'všetky vtipy', jokes_path %></p>
+  <div class="well">
+    <p>Pre dopyt <em><%= @q %></em> sa nenašli žiadne výsledky. Pozri si radšej <%= link_to 'všetky vtipy', jokes_path %>.</p>
+  </div>
 <% end -%>

@@ -5,13 +5,17 @@
     <% end -%>
   </div>
 
-  <%= simple_format(inline_images(joke.body)) %>
+  <%= joke.formatted_body %>
   <h4>Poučenie</h4>
-  <%= simple_format(joke.advice) %>
-  <p>
-    <% (1..5).each do |rating| %>
-      <%= radio_button_tag "rating_#{joke.id}", rating, rating == joke.rating, class: 'stars-static' %>
-    <% end -%>
-    <span class="comment"><%= joke.comment %></span>
-  </p>
+  <%= joke.advice %>
+
+  <div class="well">
+    <h6>Hodnotenie pani profesorky</h6>
+    <p class="rating">
+      <% (1..5).each do |rating| %>
+        <%= radio_button_tag "rating_#{joke.id}", rating, rating == joke.rating, class: 'stars-static' %>
+      <% end -%>
+      <span class="comment"><%= joke.comment %></span>
+    </p>
+  </div>
 </div>

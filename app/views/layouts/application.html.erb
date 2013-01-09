@@ -2,19 +2,21 @@
 <html>
   <head>
     <title>Psina</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <div class="container">
-      <div class="navbar">
+      <div class="navbar navbar-inverse">
         <div class="navbar-inner">
           <%= link_to 'PSIna', root_path, class: 'brand' %>
           <ul class="nav">
             <li class="active"><%= link_to 'Vtipy', jokes_path %></li>
             <li><%= link_to 'Pridaj nový vtip', new_joke_path %></li>
           </ul>
+          <%= render 'system/search' %>
         </div>
       </div>
 
@@ -26,7 +28,6 @@
         <div class="alert alert-success"><%= flash[:notice] %></div>
       <% end -%>
 
-      <%= render 'system/search' %>
 
       <%= yield %>
     </div>
@@ -36,5 +37,12 @@
         <p>Postavené na <a href="http://rubyonrails.org">Ruby on Rails</a>, <a href="http://postgresql.org">PostgreSQL</a> a <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a></p>
       </div>
     </footer>
+    <script>
+      // Load the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
   </body>
 </html>

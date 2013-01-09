@@ -5,7 +5,7 @@
         <td>
           <% joke = exhibit(joke) %>
           <%= render 'joke_preview', joke: joke %>
-          <div class="hidden" data-toggle="<%= dom_id(joke) %>">
+          <div class="togglable-hidden" data-toggle="<%= dom_id(joke) %>">
             <%= render 'joke_detail', joke:joke %>
           </div>
         </td>

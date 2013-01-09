@@ -1,3 +1,3 @@
 <div id="<%= dom_id(joke) %>" class="joke-preview">
-  <strong><%= joke.title %></strong> &mdash; <%= joke.tags.render(self) %> <%= truncate(inline_images(joke.body)) %>
+  <strong><%= joke.title %></strong> &mdash; <%= joke.tags.render(self) %> <span class="muted"><%= truncate(joke.body, length: 200) %></span>
 </div>
