@@ -9,6 +9,12 @@ class JokesController < ApplicationController
 
   def create
     @joke = humor.new_joke(params[:joke])
+
+    unless params[:force]
+      @similar_jokes = humor.similar_jokes(@joke)
+      render :new and return if @similar_jokes.any?
+    end
+
     if @joke.submit
       redirect_to action: :index, notice: "Joke submitted"
     else

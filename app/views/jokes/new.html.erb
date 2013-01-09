@@ -1,4 +1,17 @@
 <%= form_for @joke, html: { class: 'form-horizontal' } do |f| %>
+  <% if @similar_jokes %>
+    <section class="well duplicates">
+      <h2>Taký vtip tu už možno máme</h2>
+      <p>Našli sme zopár vtipov, ktoré sa podobajú na ten Tvoj. Skontroluj to prosím.</p>
+      <ul>
+        <% @similar_jokes.each do |similar_joke| %>
+          <li><%= similar_joke.body %></li>
+        <% end %>
+      </ul>
+      <%= button_tag 'Môj vtip je iný. Hoď ho tam.', class: 'btn btn-primary btn-large', name: 'force' %>
+    </section>
+  <% end %>
+
   <legend>Nový vtip</legend>
   <div class='control-group'>
     <%= f.label :title, 'Názov', class: 'control-label' %>

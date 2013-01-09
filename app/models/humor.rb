@@ -26,6 +26,10 @@ class Humor
     Joke.find(id).destroy
   end
 
+  def similar_jokes(joke)
+    Joke.find_similar(joke.body)
+  end
+
   private
 
   def joke_maker

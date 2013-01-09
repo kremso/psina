@@ -43,4 +43,8 @@ class Joke < ActiveRecord::Base
   def self.unpublished
     where(published: false)
   end
+
+  def self.find_similar(body)
+    where('ts_rank(to_tsvector(body), plainto_tsquery(?)) > 0.8', body)
+  end
 end
