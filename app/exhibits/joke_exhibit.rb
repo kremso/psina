@@ -8,7 +8,7 @@ class JokeExhibit < Exhibit
   end
 
   def formatted_body
-    body = __getobj__.body
+    body = ERB::Util.html_escape(__getobj__.body)
     body = @context.simple_format(body)
     body = inline_images(body)
     body = inline_youtube(body)
