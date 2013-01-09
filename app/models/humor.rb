@@ -6,7 +6,7 @@ class Humor
   end
 
   def published_jokes
-    Joke.published
+    Joke.published.order("id desc")
   end
 
   def find_jokes(q)
