@@ -17,6 +17,8 @@ gem 'rinku'
 
 gem 'nokogiri'
 
+gem 'rvm-capistrano'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
