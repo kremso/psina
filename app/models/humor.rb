@@ -6,7 +6,7 @@ class Humor
   end
 
   def published_jokes
-    Joke.published.order("id desc")
+    Joke.published.includes(:tags).order("id desc")
   end
 
   def find_jokes(q)
@@ -24,7 +24,7 @@ class Humor
   end
 
   def unpublished_jokes
-    Joke.unpublished || []
+    Joke.unpublished.includes(:tags).order("id desc")
   end
 
   def destroy_joke(id)
