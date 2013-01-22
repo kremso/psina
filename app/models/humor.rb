@@ -10,7 +10,7 @@ class Humor
   end
 
   def find_jokes(q)
-    Joke.search_published(q) + Joke.published_and_tagged_with(q)
+    (Joke.search_published(q) + Joke.published_and_tagged_with(q)).uniq
   end
 
   def publish_joke(id, params)
