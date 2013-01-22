@@ -3,7 +3,7 @@ require 'texticle/searchable'
 class Joke < ActiveRecord::Base
   extend Searchable(:title, :body, :advice)
 
-  attr_accessible :body, :tags, :title, :advice, :author, :email
+  attr_accessible :body, :tags, :title, :advice, :author, :email, :rating, :comment
 
   has_and_belongs_to_many :tags
 
@@ -22,9 +22,13 @@ class Joke < ActiveRecord::Base
   end
 
   def publish(params)
+    update_attributes(params)
     self[:published] = true
-    self[:rating] = params[:rating]
-    self[:comment] = params[:comment]
+    save
+  end
+
+  def unpublish
+    self[:published] = false
     save
   end
 

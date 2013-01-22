@@ -7,39 +7,23 @@
     <% @unpublished_jokes.each do |joke| -%>
       <tr>
         <td>
-          <% joke = exhibit(joke) %>
-          <%= render 'jokes/joke_preview', joke: joke %>
-          <div class="togglable-hidden" data-toggle="<%= dom_id(joke) %>">
-            <%= render 'jokes/joke_detail', joke: joke %>
+          <%= render 'form', joke: joke %>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
 
+<div class="page-header">
+  <h1>Publikované vtipy</h1>
+</div>
 
-            <%= form_for joke, url: publish_admin_joke_path(joke), html: { class: 'form-horizontal' } do |f| %>
-              <div class='control-group'>
-                <span class="control-label">Autor</span> 
-                <div class="controls">
-                  <p class="inside-form"><%= joke.author %> (<%= link_to joke.email, "mailto:#{joke.email}" %>)</p>
-                </div>
-              </div>
-              <div class='control-group'>
-                <%= f.label :rating, 'Hodnotenie', class: 'control-label' %>
-                <div class='controls'>
-                  <% (1..5).each do |rating| %>
-                    <%= f.radio_button :rating, rating, class: 'stars' %>
-                  <% end -%>
-                </div>
-              </div>
-              <div class='control-group'>
-                <%= f.label :comment, 'Komentár', class: 'control-label' %>
-                <div class='controls'>
-                  <%= f.text_field :comment, class: 'input-xxlarge', placeholder: 'Krátky a výstižný komentár k vtipu' %>
-                </div>
-              </div>
-              <div class="form-actions">
-                <%= f.submit 'Publikovať', class: 'btn btn-primary' %>
-                <%= link_to 'Zmazať', admin_joke_path(joke), method: :delete, class: 'btn' %>
-              </div>
-            <% end -%>
-          </div>
+<table class="table table-striped jokes published-jokes">
+  <tbody>
+    <% @published_jokes.each do |joke| -%>
+      <tr>
+        <td>
+          <%= render 'form', joke: joke %>
         </td>
       </tr>
     <% end -%>

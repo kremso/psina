@@ -1,0 +1,51 @@
+<% joke = exhibit(joke) %>
+<%= render 'jokes/joke_preview', joke: joke %>
+<div class="togglable-hidden" data-toggle="<%= dom_id(joke) %>">
+  <%= form_for joke, url: publish_admin_joke_path(joke), html: { class: 'form-horizontal' } do |f| %>
+    <div class='control-group'>
+      <%= f.label :title, 'Názov', class: 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :title, class: 'input-xxlarge', placeholder: 'Krátky a výstižný názov vtipu' %>
+      </div>
+    </div>
+    <div class='control-group'>
+      <%= f.label :body, 'Príbeh', class: 'control-label' %>
+      <div class='controls'>
+        <%= f.text_area :body, rows: 10, class: 'input-xxlarge', placeholder: 'Text samotného vtipu alebo príbehu' %>
+      </div>
+    </div>
+    <div class='control-group'>
+      <%= f.label :advice, 'Poučenie', class: 'control-label' %>
+      <div class='controls'>
+        <%= f.text_area :advice, rows: 10, class: 'input-xxlarge', placeholder: 'Súvis s disciplínou softvérového inžinierstva a diskusia k pointe príbehu z odborného hľadiska' %>
+      </div>
+    </div>
+    <div class='control-group'>
+      <%= f.label :tags, 'Kategórie', class: 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :tags, class: 'input-xxlarge', placeholder: 'Zopár kľúčových slov oddelených čiarkami' %>
+      </div>
+    </div>
+    <div class='control-group'>
+      <span class="control-label">Autor</span> 
+      <div class="controls">
+        <p class="inside-form"><%= joke.author %> (<%= link_to joke.email, "mailto:#{joke.email}" %>)</p>
+      </div>
+    </div>
+    <div class='control-group'>
+      <%= f.label :rating, 'Hodnotenie', class: 'control-label' %>
+      <div class='controls'>
+        <% (1..5).each do |rating| %>
+          <%= f.radio_button :rating, rating, class: 'stars' %>
+        <% end -%>
+      </div>
+    </div>
+    <div class='control-group'>
+      <%= f.label :comment, 'Komentár', class: 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :comment, class: 'input-xxlarge', placeholder: 'Krátky a výstižný komentár k vtipu' %>
+      </div>
+    </div>
+    <%= joke.render_action_buttons(f) %>
+  <% end -%>
+</div>

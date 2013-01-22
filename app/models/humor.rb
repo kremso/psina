@@ -18,6 +18,11 @@ class Humor
     joke.publish(params)
   end
 
+  def unpublish_joke(id)
+    joke = Joke.find(id)
+    joke.unpublish
+  end
+
   def unpublished_jokes
     Joke.unpublished || []
   end

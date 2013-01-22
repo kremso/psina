@@ -16,6 +16,14 @@ class JokeExhibit < Exhibit
     body.html_safe
   end
 
+  def render_action_buttons(form)
+    if __getobj__.published?
+      @context.render('admin/jokes/actions_for_published', f: form, joke: self)
+    else
+      @context.render('admin/jokes/actions_for_unpublished', f: form, joke: self)
+    end
+  end
+
   private
 
   PICTURE_FORMAT_RE = /\bhttp:\/\/.*?(?:\.gif|\.png|\.jpg|\.jpeg)\b/

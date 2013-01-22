@@ -62,6 +62,7 @@ Psina::Application.routes.draw do
   namespace :admin do
     resources :jokes do
       patch :publish, on: :member
+      post :unpublish, on: :member
     end
   end
 end

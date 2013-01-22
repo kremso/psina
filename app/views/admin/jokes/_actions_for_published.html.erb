@@ -1,0 +1,5 @@
+<div class="form-actions">
+  <%= f.submit 'Upraviť', class: 'btn btn-primary' %>
+  <%= link_to 'Odpublikovať', unpublish_admin_joke_path(joke), method: :post, class: 'btn' %>
+  <%= link_to 'Zmazať', admin_joke_path(joke), method: :delete, class: 'btn' %>
+</div>

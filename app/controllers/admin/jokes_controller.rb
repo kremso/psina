@@ -5,6 +5,7 @@ class Admin::JokesController < ApplicationController
 
   def index
     @unpublished_jokes = humor.unpublished_jokes
+    @published_jokes = humor.published_jokes
   end
 
   def publish
@@ -12,6 +13,14 @@ class Admin::JokesController < ApplicationController
       redirect_to admin_jokes_path, notice: 'Vtip bol publikovaný'
     else
       redirect_to admin_jokes_path, alert: 'Vtip sa nepodarilo publikovať'
+    end
+  end
+
+  def unpublish
+    if humor.unpublish_joke(params[:id])
+      redirect_to admin_jokes_path, notice: 'Vtip bol odpublikovaný'
+    else
+      redirect_to admin_jokes_path, alert: 'Vtip sa nepodarilo odpublikovať'
     end
   end
 
