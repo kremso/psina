@@ -12,9 +12,7 @@
   <div class="well">
     <h6>Hodnotenie pani profesorky</h6>
     <p class="rating">
-      <% (1..5).each do |rating| %>
-        <%= radio_button_tag "rating_#{joke.id}", rating, rating == joke.rating, class: 'stars-static' %>
-      <% end -%>
+      <%= stars(joke.rating) %>
       <span class="comment"><%= joke.comment %></span>
     </p>
   </div>
