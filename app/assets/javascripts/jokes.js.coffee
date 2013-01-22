@@ -3,6 +3,23 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  tg = (el) ->
+    updateInstructions = ->
+      if el.hasClass('expanded')
+        source = 'hide'
+      else
+        source = 'show'
+      el.text(el.data(source))
+
+    updateInstructions()
+
+    el.click ->
+      $('table.jokes .joke-preview').click()
+      el.toggleClass('expanded')
+      updateInstructions()
+      false
+  tg($('.toggle-all'))
+
   $('table.jokes .joke-preview').click ->
     target_row_id = $(this).attr("id")
     details = $("div[data-toggle='#{target_row_id}']")
