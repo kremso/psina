@@ -25,6 +25,7 @@ class JokesController < ApplicationController
 
   def search
     @q = params[:q]
+    redirect_to jokes_path if @q.blank?
     @jokes = humor.find_jokes(@q)
   end
 end
