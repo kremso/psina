@@ -1,3 +1,3 @@
 <div id="<%= dom_id(joke) %>" class="joke-preview">
-  <strong><%= joke.title %></strong> <%= stars(joke.rating) %> &mdash; <%= joke.tags.render(self) %> <span class="muted"><%= truncate(joke.body, length: 200) %></span>
+  <strong><% if joke.badge %><span class="badge badge-success special-joke-badge"><i class="icon-thumbs-up"></i></span><% end %><%= joke.title %></strong> <%= stars(joke.rating) %> &mdash; <%= joke.tags.render(self) %> <span class="muted"><%= truncate(joke.body, length: 200) %></span>
 </div>

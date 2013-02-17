@@ -46,6 +46,12 @@
         <%= f.text_field :comment, class: 'input-xxlarge', placeholder: 'Krátky a výstižný komentár k vtipu' %>
       </div>
     </div>
+    <div class='control-group'>
+      <%= f.label :badge, 'Zvýrazniť?', class: 'control-label' %>
+      <div class='controls'>
+        <%= f.check_box :badge, class: 'input-xxlarge' %>
+      </div>
+    </div>
     <%= joke.render_action_buttons(f) %>
   <% end -%>
 </div>

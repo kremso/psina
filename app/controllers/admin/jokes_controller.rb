@@ -41,6 +41,6 @@ class Admin::JokesController < ApplicationController
   end
 
   def joke_params
-    params.require(:joke).permit(:title, :body, :advice, :tags, :rating, :comment, :tags)
+    params.require(:joke).permit(:title, :body, :advice, :tags, :rating, :comment, :tags, :badge)
   end
 end
