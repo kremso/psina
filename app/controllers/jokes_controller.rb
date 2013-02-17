@@ -9,7 +9,7 @@ class JokesController < ApplicationController
   end
 
   def create
-    @joke = humor.new_joke(params[:joke])
+    @joke = humor.new_joke(joke_params)
 
     unless params[:force]
       @similar_jokes = humor.similar_jokes(@joke)
@@ -27,5 +27,11 @@ class JokesController < ApplicationController
     @q = params[:q]
     redirect_to jokes_path if @q.blank?
     @jokes = humor.find_jokes(@q)
+  end
+
+  private
+
+  def joke_params
+    params.require(:joke).permit(:body, :title, :advice, :author, :email, :tags)
   end
 end

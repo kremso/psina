@@ -9,7 +9,7 @@ class Admin::JokesController < ApplicationController
   end
 
   def publish
-    if humor.publish_joke(params[:id], params[:joke])
+    if humor.publish_joke(params[:id], joke_params)
       redirect_to admin_jokes_path, notice: 'Vtip bol publikovaný'
     else
       redirect_to admin_jokes_path, alert: 'Vtip sa nepodarilo publikovať'
@@ -38,5 +38,9 @@ class Admin::JokesController < ApplicationController
     authenticate_or_request_with_http_basic do |user, password|
       user == "admin" && password == "psina2012"
     end
+  end
+
+  def joke_params
+    params.require(:joke).permit(:title, :body, :advice, :tags, :rating, :comment, :tags)
   end
 end

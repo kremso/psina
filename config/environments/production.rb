@@ -73,8 +73,4 @@ Psina::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
-  # Default the production mode queue to an in-memory queue. You will probably
-  # want to replace this with an out-of-process queueing solution.
-  config.queue = Rails::Queueing::Queue
 end
