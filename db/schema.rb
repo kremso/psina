@@ -11,38 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130217184904) do
+ActiveRecord::Schema.define(version: 20130603091055) do
 
   create_table "jokes", force: true do |t|
     t.text     "body"
-    t.boolean  "published",              default: false
+    t.boolean  "published",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title",      limit: 100,                 null: false
+    t.text     "title",                      null: false
     t.text     "advice"
-    t.string   "author",     limit: 100,                 null: false
-    t.string   "email",      limit: 100,                 null: false
+    t.text     "author",                     null: false
+    t.text     "email",                      null: false
     t.integer  "rating"
-    t.string   "comment",    limit: 200
-    t.boolean  "badge",                  default: false, null: false
+    t.text     "comment"
+    t.boolean  "badge",      default: false, null: false
   end
 
-  add_index "jokes", ["published"], name: "index_jokes_on_published"
+  add_index "jokes", ["published"], name: "index_jokes_on_published", using: :btree
 
   create_table "jokes_tags", force: true do |t|
     t.integer "joke_id"
     t.integer "tag_id"
   end
 
-  add_index "jokes_tags", ["joke_id", "tag_id"], name: "index_jokes_tags_on_joke_id_and_tag_id"
+  add_index "jokes_tags", ["joke_id", "tag_id"], name: "index_jokes_tags_on_joke_id_and_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string   "label",      limit: 50
+    t.text     "label"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tags", ["label"], name: "index_tags_on_label", unique: true
+  add_index "tags", ["label"], name: "index_tags_on_label", unique: true, using: :btree
 
   add_foreign_key "jokes_tags", "jokes", :name => "jokes_tags_joke_id_fk"
   add_foreign_key "jokes_tags", "tags", :name => "jokes_tags_tag_id_fk"
