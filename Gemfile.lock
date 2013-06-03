@@ -88,6 +88,10 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    airbrake (3.1.12)
+      activesupport
+      builder
+      json
     atomic (1.0.1)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
@@ -219,6 +223,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-deprecated_finders!
+  airbrake
   arel!
   bootstrap-sass
   coffee-rails!

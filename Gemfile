@@ -19,6 +19,7 @@ gem 'rinku'
 gem 'nokogiri'
 
 gem 'rvm-capistrano'
+gem 'airbrake'
 
 # Gems used only for assets and not required
 # in production environments by default.
